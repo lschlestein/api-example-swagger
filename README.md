@@ -21,6 +21,12 @@ Para integrar a funcionalidade do Swagger, ao nosso projeto, caso não sejam des
 
 Uma vez adicionada a dependência, já é possível verificar se ela foi adicionada corretamente. Com a aplicação rodando, basta acessar o [dashboard](http://localhost:8080/swagger-ui.html) do Swagger-ui, no endereço /swagger-ui/index.html, caso esteja utilizando as configurações padrão do Spring Boot o endereço é http://localhost:8080/swagger-ui.html .
 
+Caso deseje mudar o caminho para acessar a UI do Swagger, basta editar o application.properties:
+```
+# swagger-ui custom path
+springdoc.swagger-ui.path=/swagger-ui.html
+```
+
 ### Dashboard do Swagger
 ![image](https://github.com/user-attachments/assets/978cd52e-f055-486d-9f47-11a6d564f42b)
 
