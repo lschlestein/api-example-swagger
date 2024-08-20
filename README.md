@@ -96,5 +96,5 @@ Referências:
 
 [Swaager Oauth2](https://codersite.dev/spring-boot-oauth2/)
 [Spring Rest OpenApi](https://www.baeldung.com/spring-rest-openapi-documentation)
-
+[Using Swagger 3 in Spring Boot 3](https://medium.com/@f.s.a.kuzman/using-swagger-3-in-spring-boot-3-c11a483ea6dc)
 
