@@ -19,7 +19,7 @@ Para integrar a funcionalidade do Swagger, ao nosso projeto, caso não sejam des
     </dependencies>
 ```
 
-Uma vez adicionada a dependência, já é possível verificar se ela foi adicionada corretamente. Com a aplicação rodando, basta acessar o [dashboard](http://localhost:8080/swagger-ui/index.html) do Swagger-ui, no endereço /swagger-ui/index.html, caso esteja utilizando as configurações padrão do Spring Boot o endereço é http://localhost:8080/swagger-ui/index.html .
+Uma vez adicionada a dependência, já é possível verificar se ela foi adicionada corretamente. Com a aplicação rodando, basta acessar o [dashboard](http://localhost:8080/swagger-ui.html) do Swagger-ui, no endereço /swagger-ui/index.html, caso esteja utilizando as configurações padrão do Spring Boot o endereço é http://localhost:8080/swagger-ui.html .
 
 ### Dashboard do Swagger
 ![image](https://github.com/user-attachments/assets/978cd52e-f055-486d-9f47-11a6d564f42b)
@@ -76,8 +76,23 @@ public class OpenApiConfig {
 ```
 Nessa classe, estão sendo configurados o titúlo de nossa api, detalhes de contato, licença e informações sobre os servidores da aplicação.
 
+### Descrevendo os Endpoints
+É possível descrever cada endpoint, através de anotações conforme é demonstrado abaixo:
 
+``` java
+//Descreve a funcionalidade do método em questão, junto a UI do Swagger
+    @Operation(summary = "Buscar todos os carros", description = "Retorna uma lista de todos os carros cadastrados.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação bem-sucedida"),
+            @ApiResponse(responseCode = "500", description = "Erro interno no servidor")
+    })
+    @GetMapping(path = "/all")
+    public ResponseEntity<Iterable<Car>> getCars() {
+        return ResponseEntity.ok(carRepository.findAll());
+    }
+```
 
+Referências:
 
 [Swaager Oauth2](https://codersite.dev/spring-boot-oauth2/)
 [Spring Rest OpenApi](https://www.baeldung.com/spring-rest-openapi-documentation)
